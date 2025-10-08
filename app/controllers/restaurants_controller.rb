@@ -24,6 +24,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def batches
+    Restaurants::LoadInBatchesJob.perform_now(params.to_json)
+  end
+
   # PATCH/PUT /restaurants/1
   def update
     if @restaurant.update(restaurant_params)

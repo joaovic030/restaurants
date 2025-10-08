@@ -17,11 +17,11 @@ RSpec.describe "/menu_groups", type: :request do
   # MenuGroup. As you add validations to MenuGroup, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:menu_group)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:menu_group, name: nil)
   }
 
   # This should return the minimal set of values that should be in the headers
@@ -85,7 +85,9 @@ RSpec.describe "/menu_groups", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          name: "new group"
+        }
       }
 
       it "updates the requested menu_group" do
@@ -93,7 +95,8 @@ RSpec.describe "/menu_groups", type: :request do
         patch menu_group_url(menu_group),
               params: { menu_group: new_attributes }, headers: valid_headers, as: :json
         menu_group.reload
-        skip("Add assertions for updated state")
+
+        expect(menu_group.name).to eq(new_attributes[:name])
       end
 
       it "renders a JSON response with the menu_group" do

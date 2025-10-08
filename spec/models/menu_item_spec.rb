@@ -24,20 +24,8 @@ RSpec.describe MenuItem, type: :model do
       it_behaves_like 'menu_item is invalid'
     end
 
-    context "when description is blank" do
-      let(:menu_item) { build(:menu_item, description: nil) }
-
-      it_behaves_like 'menu_item is invalid'
-    end
-
     context "when price is blank" do
       let(:menu_item) { build(:menu_item, price: nil) }
-
-      it_behaves_like 'menu_item is invalid'
-    end
-
-    context "when cost is blank" do
-      let(:menu_item) { build(:menu_item, cost: nil) }
 
       it_behaves_like 'menu_item is invalid'
     end

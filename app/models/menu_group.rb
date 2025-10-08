@@ -1,0 +1,2 @@
+class MenuGroup < ApplicationRecord
+end

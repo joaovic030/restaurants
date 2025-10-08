@@ -1,8 +1,8 @@
 class MenuItem < ApplicationRecord
   belongs_to :menu
-  belongs_to :menu_group
+  belongs_to :menu_group, optional: true
 
-  validates_presence_of :name, :description, :price, :cost
+  validates_presence_of :name, :price
   validates_uniqueness_of :name
 
 

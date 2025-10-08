@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_08_020626) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_08_184127) do
   create_table "menu_groups", force: :cascade do |t|
     t.text "name"
     t.text "description"
@@ -24,7 +24,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_08_020626) do
     t.decimal "price"
     t.decimal "cost"
     t.integer "menu_id", null: false
-    t.integer "menu_group_id", null: false
+    t.integer "menu_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["menu_group_id"], name: "index_menu_items_on_menu_group_id"

@@ -35,7 +35,7 @@ Logging
 All batch operation results — success or failure — are logged using Rails' Logger to a log file called `restaurants_load_in_batches.log`. Logs include relevant data about the restaurants, menus, menu items, and detailed error messages if any operation fails.
 
 ## Test
-- Just run the migrations. 
+- Just run the migrations. `rails db:create db:migrate`, `rails server`
 - Test endpoints as in the image.
 - Run unit tests.
 

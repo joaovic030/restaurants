@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :menu do
-    name { "MyText" }
-    description { "MyText" }
-    restaurant { nil }
+    name { Faker::Company.name + " Menu #{rand(9999)}" }
+    description { Faker::Adjective.positive }
+    restaurant
   end
 end

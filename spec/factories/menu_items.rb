@@ -1,10 +1,12 @@
 FactoryBot.define do
+  price = rand(10.0..400.0).round(2)
+
   factory :menu_item do
-    name { "MyText" }
-    description { "MyText" }
-    price { "9.99" }
-    cost { "9.99" }
-    menu { nil }
-    menu_group { nil }
+    name { Faker::Restaurant.name }
+    description { Faker::Restaurant.description }
+    price { price }
+    cost { price - (price * 0.25) }
+    menu
+    menu_group
   end
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :menu_group do
-    name { "MyText" }
-    description { "MyText" }
+    name { Faker::Restaurant.type }
+    description {  Faker::Lorem.sentence }
   end
 end

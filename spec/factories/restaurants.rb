@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :restaurant do
-    name { "MyText" }
-    address { "MyString" }
+    name { Faker::Company.name }
+    address { Faker::Address.street_name }
   end
 end

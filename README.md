@@ -33,3 +33,12 @@ The system supports a special action called Batches where you can submit a JSON 
 
 Logging
 All batch operation results — success or failure — are logged using Rails' Logger to a log file called `restaurants_load_in_batches.log`. Logs include relevant data about the restaurants, menus, menu items, and detailed error messages if any operation fails.
+
+## Test
+- Just run the migrations. 
+- Test endpoints as in the image.
+- Run unit tests.
+
+```
+rspec
+```

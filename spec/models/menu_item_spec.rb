@@ -42,4 +42,12 @@ RSpec.describe MenuItem, type: :model do
       it_behaves_like 'menu_item is invalid'
     end
   end
+
+  context "should not be duplicated" do
+    it { expect(menu_item.dup).not_to be_valid }
+  end
+
+  context "should delegate attribute restaurant_id" do
+    it { expect(menu_item.restaurant_id).to be_eql(menu_item.menu.restaurant_id) }
+  end
 end

@@ -1,24 +1,35 @@
-# README
+## Restaurant Menus
+This system allows the creation and management of restaurants along with their menus, menu groups, and menu items. It exposes RESTful API endpoints following Rails conventions to perform standard CRUD operations.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features
+- Manage Restaurants and their associated Menus
+- Manage Menu Groups and Menu Items within each menu
+- Batch creation of restaurants, menus, and menu items with nested JSON input
+- Logging for batch operations
 
-Things you may want to cover:
+Batch Creation API
+The system supports a special action called Batches where you can submit a JSON payload with a key restaurants. This key contains multiple restaurants, each with nested menus and menu items. The batch endpoint processes the input by:
 
-* Ruby version
+- Parsing nested JSON data
+- Using a Data Transfer Object (DTO) to extract and convert input for the system
+- Creating restaurants and their associated menus and menu items in batch
+- Logging all successes or failures using Rails' basic Logger, including detailed information about each restaurant, menu, menu item, and any errors encountered
 
-* System dependencies
+## Stack
+**Rails 8, Ruby 3.2.**
+### Test stack: 
+**RSpec, FactoryBot, Faker.**
 
-* Configuration
+### The main feature can be tested as follow:
+> POST restaurants/batches
 
-* Database creation
+**Pass a Body data in JSON format**
 
-* Database initialization
+### File to use and test the restaurant batches creation:
 
-* How to run the test suite
+> lib/data/restaurants.json
 
-* Services (job queues, cache servers, search engines, etc.)
+![alt text](image.png)
 
-* Deployment instructions
-
-* ...
+Logging
+All batch operation results — success or failure — are logged using Rails' Logger to a log file called `restaurants_load_in_batches.log`. Logs include relevant data about the restaurants, menus, menu items, and detailed error messages if any operation fails.
